@@ -1,4 +1,4 @@
-#MCLogicGates [![Build Status](https://travis-ci.org/Digital-Youth-Network/MinecraftLauncher.svg?branch=master)](https://travis-ci.org/Digital-Youth-Network/MinecraftLauncher)
+#MCLogicGates [![Build Status](https://travis-ci.org/Digital-Youth-Network/MCLogicGates.svg?branch=1.8.0)](https://travis-ci.org/Digital-Youth-Network/MCLogicGates)
 
 ##LOGIC GATES
 
