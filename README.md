@@ -25,84 +25,84 @@ Forum: http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2
 ####Gates
 
 #####BUFFER
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Buffer Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/buffer.png "Buffer Gate")
 
 #####NOT
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Not Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/not.png "Not Gate")
 
 #####AND
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "And Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/and3.png "And Gate")
 
 #####OR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Or Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/or3.png "Or Gate")
 
 #####XOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Xor Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/xor3.png "Xor Gate")
 
 #####NAND
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Nand Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/nand3.png "Nand Gate")
 
 #####NOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Nor Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/nor3.png "Nor Gate")
 
 #####XNOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Xnor Gate")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/xnor3.png "Xnor Gate")
 
 ####Diodes
 
 #####Repeater
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Repeater Diodes")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/repeater.png "Repeater Diodes")
 
 #####Inverter
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Inverter Diode")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/inverter.png "Inverter Diode")
 
 #####Vertical Transmitter
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Vertical Transmitter")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/vert_trans.png "Vertical Transmitter")
 
 #####Vertical Receiver
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Vertical Reciever")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/vert_recv.png "Vertical Reciever")
 
 ###Gated Diodes
 
 ####2-Input
 
 #####AND
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2-Input And")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/and2.png "2-Input And")
 
 #####OR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2-Input Or")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/or2.png "2-Input Or")
 
 #####XOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2-Input Xor")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/xor2.png "2-Input Xor")
 
 #####NAND
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2-Input Nand")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/nand2.png "2-Input Nand")
 
 #####NOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2-Input Nor")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/nor2.png "2-Input Nor")
 
 #####XNOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "2-Input Xnor")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/xnor2.png "2-Input Xnor")
 
 ####3-Input
 
 #####AND
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "3-Input And")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/and.png "3-Input And")
 
 #####OR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "3-Input Or")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/or.png "3-Input Or")
 
 #####XOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "3-Input Xor")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/xor.png "3-Input Xor")
 
 #####NAND
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "3-Input Nand")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/nand.png "3-Input Nand")
 
 #####NOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "3-Input Nor")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/nor.png "3-Input Nor")
 
 #####XNOR
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "3-Input Xnor")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/xnor.png "3-Input Xnor")
 
 ###Signals
 
@@ -119,7 +119,7 @@ RE - Redstone to ender
 ER - Ender to redstone
 
 Signal Transmission/Reception
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Signal Propigation")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/trans_recv.gif "Signal Propigation")
 
 (Top left) RR Repeater, (Top right) RE Converter, (Botem left) EE Repeater, (Bottom right) ER Converter
 
@@ -134,5 +134,5 @@ RE > ER or EE
 ER > RE or RR
 
 Demo
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Gate Demo")
+![alt text](https://raw.githubusercontent.com/Digital-Youth-Network/MCLogicGates/1.8.0/images/demo.gif "Gate Demo")
 
