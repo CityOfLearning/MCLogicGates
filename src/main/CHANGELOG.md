@@ -3,31 +3,6 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-
-## [1.0.3] - 2016-01-30
-### Fixed
-- Ender Converter ignoring other Converters on signal validation
-- Ender Converter not notifying other Ender Converters of change
-
-## [1.0.2] - 2016-01-30
-### Fixed
-- Converter signal transmission/reception
-- Converter particles
-
-## [1.0.1] - 2016-01-30
-### Added
-- Server/Client proxy handling
-
-## [1.0.0] - 2016-01-30
-### Added
-- Vertical Receiver Blocks
-
-### Changed
-- Moved to Minecraft 1.8.9
-- BUFFER and NOT gate recipes to reduce overall slab cost
-- Renamed Vertical Repeater to Vertical Transmitter
-- Recipes for Vertical Transmitter
-
 ### Fixed
 - Block dropping wrong item and meta on break
 - XNOR Gate recipe

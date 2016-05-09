@@ -1,7 +1,7 @@
 package com.github.rainang.logicgates.block;
 
-import com.github.rainang.logicgates.Gate;
-import com.github.rainang.logicgates.Signal;
+import com.github.rainang.logicgates.diode.Gate;
+import com.github.rainang.logicgates.diode.Signal;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.properties.PropertyInteger;
@@ -12,9 +12,9 @@ public abstract class BlockDiode2In extends BlockDiode {
 
 	public static final PropertyInteger INPUT = PropertyInteger.create("input", 0, 3);
 
-	protected final Signal signal;
+	private final Signal signal;
 
-	protected final int type;
+	public final int type;
 
 	public BlockDiode2In(Signal signal, Gate gate, int type) {
 		super(gate);
@@ -30,8 +30,18 @@ public abstract class BlockDiode2In extends BlockDiode {
 	}
 
 	@Override
+	public int getInputCount() {
+		return 2;
+	}
+
+	@Override
 	public PropertyInteger getInputProperty() {
 		return INPUT;
+	}
+
+	@Override
+	public int getInputState(IBlockState state) {
+		return (Integer)state.getValue(INPUT);
 	}
 
 	@Override
@@ -51,15 +61,5 @@ public abstract class BlockDiode2In extends BlockDiode {
 	@Override
 	public List<EnumFacing> getInputs(IBlockState state) {
 		return Arrays.asList(getInput(state, 0), getInput(state, 1));
-	}
-
-	@Override
-	public int getInputState(IBlockState state) {
-		return state.getValue(INPUT);
-	}
-
-	@Override
-	public int getInputCount() {
-		return 2;
 	}
 }
