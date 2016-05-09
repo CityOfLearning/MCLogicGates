@@ -1,7 +1,7 @@
 package com.github.rainang.logicgates.block;
 
-import com.github.rainang.logicgates.diode.Gate;
-import com.github.rainang.logicgates.diode.Signal;
+import com.github.rainang.logicgates.Gate;
+import com.github.rainang.logicgates.Signal;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.properties.PropertyInteger;
@@ -27,38 +27,13 @@ public abstract class BlockDiode5In extends BlockDiode {
 	}
 
 	@Override
-	public IBlockState onBlockPlaced(
-			World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
-			EntityLivingBase placer) {
-		return getStateFromMeta(meta);
-	}
-
-	public boolean isActive(IBlockState state) {
-		return gate.validate(getInputCount(), getInputState(state));
-	}
-
-	@Override
 	public Signal getSignal(IBlockState state) {
 		return signal;
 	}
 
 	@Override
-	public int getInputCount() {
-		return 5;
-	}
-
-	@Override
-	public int getInputState(IBlockState state) {
-		return (Integer)state.getValue(INPUT);
-	}
-
-	@Override
 	public PropertyInteger getInputProperty() {
 		return INPUT;
-	}
-
-	public EnumFacing getOutput(IBlockState state) {
-		return out;
 	}
 
 	@Override
@@ -77,18 +52,44 @@ public abstract class BlockDiode5In extends BlockDiode {
 		}
 	}
 
-	public int validateInputState(World world, BlockPos pos, IBlockState state) {
-		return super.validateInputState(world, pos, state);
-	}
-
 	@Override
 	public List<EnumFacing> getInputs(IBlockState state) {
 		return Arrays.asList(getInput(state, 0), getInput(state, 1), getInput(state, 2), getInput(state, 3),
 				getInput(state, 4));
 	}
 
+	@Override
+	public int getInputState(IBlockState state) {
+		return state.getValue(INPUT);
+	}
+
+	@Override
+	public int getInputCount() {
+		return 5;
+	}
+
+	@Override
 	public IBlockState setInputState(IBlockState state, int input) {
 		return state.withProperty(getInputProperty(), input);
+	}
+
+	@Override
+	public EnumFacing getOutput(IBlockState state) {
+		return out;
+	}
+
+	@Override
+	public boolean isActive(IBlockState state) {
+		return gate.validate(getInputCount(), getInputState(state));
+	}
+
+	/* BLOCK OVERRIDE */
+
+	@Override
+	public IBlockState onBlockPlaced(
+			World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
+			EntityLivingBase placer) {
+		return getStateFromMeta(meta);
 	}
 
 	@Override
@@ -103,6 +104,6 @@ public abstract class BlockDiode5In extends BlockDiode {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return (Integer)state.getValue(INPUT);
+		return state.getValue(INPUT);
 	}
 }

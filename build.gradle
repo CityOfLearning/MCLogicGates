@@ -1,34 +1,38 @@
+// For those who want the bleeding edge
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+/*
+// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
 plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
-
-version = "v1.8.0"
-group= "mc.logicgates"
-archivesBaseName = "MCLogicGates"
+*/
+version = "1.8.9-1.0.3"
+group = "com.github.rainang.logicgates"
+//noinspection GroovyUnusedAssignment
+archivesBaseName = "logicgates"
 
 minecraft {
-    version = "1.8-11.14.4.1577"
-    runDir = "eclipse"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not allways work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20141130"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-	
-	replace '@version@', project.version
+    version = "1.8.9-11.15.1.1722"
+    runDir = "run"
+
+    replace '@version@', project.version
     replace '@mcversion@', project.minecraft.version
     replaceIn 'LogicGates.java'
-}
 
-configurations {
-    compile
-}
-
-dependencies {
-
+    mappings = "stable_20"
 }
 
 jar {	
@@ -41,30 +45,31 @@ jar {
     }
 }
 
-artifacts {
-    archives jar
+dependencies {
+
 }
 
-compileJava {
+processResources
+        {
+            inputs.property "version", project.version
+            inputs.property "mcversion", project.minecraft.version
+
+            from(sourceSets.main.resources.srcDirs) {
+                include 'mcmod.info'
+
+                expand 'version': project.version, 'mcversion': project.minecraft.version
+            }
+
+            from(sourceSets.main.resources.srcDirs) {
+                exclude 'mcmod.info'
+            }
+        }
+		
+		compileJava {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 }
 
 task wrapper(type: Wrapper) {
 	gradleVersion = "2.6"
-}
-
-processResources
-{
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
 }

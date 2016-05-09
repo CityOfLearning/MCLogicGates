@@ -1,7 +1,7 @@
 package com.github.rainang.logicgates.block;
 
-import com.github.rainang.logicgates.diode.Gate;
-import com.github.rainang.logicgates.diode.Signal;
+import com.github.rainang.logicgates.Gate;
+import com.github.rainang.logicgates.Signal;
 import java.util.Collections;
 import java.util.List;
 import net.minecraft.block.properties.PropertyEnum;
@@ -20,7 +20,7 @@ public abstract class BlockDiode1In extends BlockDiode {
 	public static final PropertyInteger INPUT  = PropertyInteger.create("input", 0, 1);
 	public static final PropertyEnum    SIGNAL = PropertyEnum.create("signal", Signal.class);
 
-	public final int type;
+	protected final int type;
 
 	public BlockDiode1In(Gate gate, int type) {
 		super(gate);
@@ -34,16 +34,6 @@ public abstract class BlockDiode1In extends BlockDiode {
 	@Override
 	public Signal getSignal(IBlockState state) {
 		return (Signal)state.getValue(SIGNAL);
-	}
-
-	@Override
-	public int getInputCount() {
-		return 1;
-	}
-
-	@Override
-	public int getInputState(IBlockState state) {
-		return (Integer)state.getValue(INPUT);
 	}
 
 	@Override
@@ -63,6 +53,18 @@ public abstract class BlockDiode1In extends BlockDiode {
 	}
 
 	@Override
+	public int getInputState(IBlockState state) {
+		return state.getValue(INPUT);
+	}
+
+	@Override
+	public int getInputCount() {
+		return 1;
+	}
+
+	/* BLOCK OVERRIDE */
+
+	@Override
 	protected BlockState createBlockState() {
 		return new BlockState(this, OUT, getInputProperty(), SIGNAL);
 	}
@@ -77,8 +79,8 @@ public abstract class BlockDiode1In extends BlockDiode {
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		byte b0 = 0;
-		int i = b0|((EnumFacing)state.getValue(OUT)).getHorizontalIndex();
-		i |= (Integer)state.getValue(getInputProperty())<<2;
+		int i = b0|state.getValue(OUT).getHorizontalIndex();
+		i |= state.getValue(getInputProperty())<<2;
 		i |= getSignal(state).ordinal()<<3;
 		return i;
 	}
