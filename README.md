@@ -1,4 +1,4 @@
-#MCLogicGates [![Build Status](https://travis-ci.org/Digital-Youth-Network/MCLogicGates.svg?branch=1.8.0)](https://travis-ci.org/Digital-Youth-Network/MCLogicGates)
+#MCLogicGates [![Build Status](https://travis-ci.org/CityOfLearning/MCLogicGates.svg?branch=1.8.9)](https://travis-ci.org/CityOfLearning/MCLogicGates)
 
 ##LOGIC GATES
 
