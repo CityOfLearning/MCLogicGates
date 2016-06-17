@@ -1,7 +1,7 @@
 package com.github.rainang.logicgates.block;
 
-import com.github.rainang.logicgates.diode.Gate;
-import com.github.rainang.logicgates.diode.Signal;
+import com.github.rainang.logicgates.Gate;
+import com.github.rainang.logicgates.Signal;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -17,9 +17,8 @@ public abstract class BlockDiodeConverter extends BlockDiode1In {
 
 	@Override
 	protected void notifyNeighbors(World worldIn, BlockPos pos, IBlockState state) {
+		notifyEnderNeighbors(worldIn, pos);
 		if(getSignal(state) == Signal.REDSTONE)
-			notifyEnderNeighbors(worldIn, pos);
-		else
 			notifyRedstoneNeighbors(worldIn, pos, state);
 	}
 
