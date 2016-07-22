@@ -23,8 +23,6 @@ public class CommonProxy {
 			GameRegistry.registerBlock(diode, ItemDiode1In.class, diode.getUnlocalizedName().substring(5));
 		for(BlockDiode diode : repeaters)
 			GameRegistry.registerBlock(diode, ItemDiode1In.class, diode.getUnlocalizedName().substring(5));
-		for(BlockDiode diode : converters)
-			GameRegistry.registerBlock(diode, ItemDiode1In.class, diode.getUnlocalizedName().substring(5));
 
 		for(BlockDiode diode : gates_and)
 			registerBlock(diode);
@@ -75,7 +73,6 @@ public class CommonProxy {
 
 	private static void registerRecipes() {
 		Item wire = Items.redstone;
-		Item p = Items.ender_pearl;
 
 		ItemStack slab = new ItemStack(Blocks.stone_slab, 1, BlockStone.EnumType.STONE.getMetadata());
 
@@ -148,34 +145,5 @@ public class CommonProxy {
 		GameRegistry.addShapedRecipe(new ItemStack(gates3_xnor[0]), "SBS", "WGW", "SWS", 'S', slab, 'W', wire, 'B',
 				buffer, 'G', xnor);
 
-		/* ENDER */
-
-		GameRegistry.addShapelessRecipe(new ItemStack(repeaters[0], 1, 8), repeat, p);
-		GameRegistry.addShapelessRecipe(new ItemStack(inverters[0], 1, 8), invert, p);
-		GameRegistry.addShapelessRecipe(new ItemStack(vertical_transmitters[0], 1, 8), transmitter, p);
-		GameRegistry.addShapelessRecipe(new ItemStack(vertical_receivers[0], 1, 8), receiver, p);
-
-		GameRegistry.addShapelessRecipe(new ItemStack(gates_and[4]), gates_and[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates_or[4]), gates_or[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates_xor[4]), gates_xor[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates_nand[4]), gates_nand[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates_nor[4]), gates_nor[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates_xnor[4]), gates_xnor[0], p);
-
-		GameRegistry.addShapelessRecipe(new ItemStack(gates3_and[2]), gates3_and[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates3_or[2]), gates3_or[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates3_xor[2]), gates3_xor[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates3_nand[2]), gates3_nand[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates3_nor[2]), gates3_nor[0], p);
-		GameRegistry.addShapelessRecipe(new ItemStack(gates3_xnor[2]), gates3_xnor[0], p);
-
-		/* CONVERTERS */
-
-		GameRegistry.addShapedRecipe(new ItemStack(converters[0], 1, 0), "SPS", "SWS", "SBS", 'B', buffer, 'S', slab,
-				'W', wire, 'P', p);
-		GameRegistry.addShapedRecipe(new ItemStack(converters[0], 1, 8), "SBS", "SWS", "SPS", 'B', buffer, 'S', slab,
-				'W', wire, 'P', p);
-		GameRegistry.addShapelessRecipe(new ItemStack(converters[0], 1, 0), new ItemStack(converters[0], 1, 8));
-		GameRegistry.addShapelessRecipe(new ItemStack(converters[0], 1, 8), new ItemStack(converters[0], 1, 0));
 	}
 }

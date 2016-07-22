@@ -31,8 +31,6 @@ public class ClientProxy extends CommonProxy {
 			registerItemRender(diode);
 		for(BlockDiode diode : inverters)
 			registerItemRender(diode);
-		for(BlockDiode diode : converters)
-			registerItemRender(diode);
 
 		for(BlockDiode diode : gates_and)
 			registerItemRender(diode);

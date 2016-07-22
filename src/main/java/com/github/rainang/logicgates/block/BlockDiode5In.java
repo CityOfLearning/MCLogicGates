@@ -1,7 +1,6 @@
 package com.github.rainang.logicgates.block;
 
 import com.github.rainang.logicgates.Gate;
-import com.github.rainang.logicgates.Signal;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.properties.PropertyInteger;
@@ -16,19 +15,12 @@ public abstract class BlockDiode5In extends BlockDiode {
 
 	public static final PropertyInteger INPUT = PropertyInteger.create("input", 0, 15);
 
-	private final Signal     signal;
 	private final EnumFacing out;
 
-	public BlockDiode5In(Signal signal, boolean down) {
+	public BlockDiode5In(boolean down) {
 		super(Gate.OR);
-		this.signal = signal;
 		this.out = down ? EnumFacing.DOWN : EnumFacing.UP;
 		setDefaultState(blockState.getBaseState().withProperty(getInputProperty(), 0));
-	}
-
-	@Override
-	public Signal getSignal(IBlockState state) {
-		return signal;
 	}
 
 	@Override

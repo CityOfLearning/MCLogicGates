@@ -1,7 +1,6 @@
 package com.github.rainang.logicgates.block;
 
 import com.github.rainang.logicgates.Gate;
-import com.github.rainang.logicgates.Signal;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.block.Block;
@@ -39,8 +38,6 @@ public abstract class BlockDiode extends Block {
 
 	public abstract BlockDiode getBaseBlock();
 
-	public abstract Signal getSignal(IBlockState state);
-
 	public abstract PropertyInteger getInputProperty();
 
 	public abstract EnumFacing getInput(IBlockState state, int index);
@@ -76,14 +73,14 @@ public abstract class BlockDiode extends Block {
 		List<EnumFacing> inputs = getInputs(state);
 		int inputState = 0;
 		for(int i = 0; i < inputs.size(); i++)
-			if(getPowerFromSide(world, pos, inputs.get(i), getSignal(state)) > 0)
+			if(getPowerFromSide(world, pos, inputs.get(i)) > 0)
 				inputState |= 1<<i;
 		inputState = Math.min(15, inputState);
 		return getInputState(state) == inputState ? -1 : inputState;
 	}
 
-	public int getPowerFromSide(World world, BlockPos pos, EnumFacing side, Signal signal) {
-		return signal == Signal.REDSTONE ? getRedstoneInput(world, pos, side) : getEnderInput(world, pos, side);
+	public int getPowerFromSide(World world, BlockPos pos, EnumFacing side) {
+		return getRedstoneInput(world, pos, side);
 	}
 
 	public int getRedstoneInput(World worldIn, BlockPos pos, EnumFacing side) {
@@ -98,35 +95,7 @@ public abstract class BlockDiode extends Block {
 		return Math.max(i, wire);
 	}
 
-	public int getEnderInput(World world, BlockPos pos, EnumFacing side) {
-		int i = getEnderNeighborDistanceFromSide(world, pos, side);
-		if(i == 0)
-			return i;
-		IBlockState state = world.getBlockState(pos.offset(side, i));
-		BlockDiode diode = (BlockDiode)state.getBlock();
-		if(diode instanceof BlockDiodeConverter && diode.getSignal(state) == Signal.ENDER)
-			return 0;
-		return diode.isActive(state) && diode.getOutput(state).getOpposite() == side ? i : 0;
-	}
-
-	public int getEnderNeighborDistanceFromSide(World world, BlockPos pos, EnumFacing side) {
-		for(int i = 1; i < Signal.ENDER.range; i++) {
-			IBlockState sideState = world.getBlockState(pos.offset(side, i));
-			if(sideState.getBlock() instanceof BlockDiode) {
-				BlockDiode diode = (BlockDiode)sideState.getBlock();
-				if(diode instanceof BlockDiodeConverter || diode.getSignal(sideState) == Signal.ENDER)
-					return i;
-			}
-		}
-		return 0;
-	}
-
-	public int[] getEnderNeighborDistances(World world, BlockPos pos) {
-		int[] distances = new int[6];
-		for(EnumFacing f : EnumFacing.values())
-			distances[f.ordinal()] = getEnderNeighborDistanceFromSide(world, pos, f);
-		return distances;
-	}
+	
 
 	protected void updateState(World worldIn, BlockPos pos, IBlockState state) {
 		int validate = validateInputState(worldIn, pos, state);
@@ -137,21 +106,7 @@ public abstract class BlockDiode extends Block {
 	}
 
 	protected void notifyNeighbors(World worldIn, BlockPos pos, IBlockState state) {
-		if(getSignal(state) == Signal.REDSTONE)
 			notifyRedstoneNeighbors(worldIn, pos, state);
-		else
-			notifyEnderNeighbors(worldIn, pos);
-	}
-
-	protected void notifyEnderNeighbors(World worldIn, BlockPos pos) {
-		int[] distances = getEnderNeighborDistances(worldIn, pos);
-		for(int i = 0; i < distances.length; i++) {
-			if(distances[i] == 0)
-				continue;
-			BlockPos sidePos = pos.offset(EnumFacing.values()[i], distances[i]);
-			worldIn.notifyBlockOfStateChange(sidePos, this);
-			worldIn.notifyNeighborsOfStateChange(sidePos, this);
-		}
 	}
 
 	protected void notifyRedstoneNeighbors(World worldIn, BlockPos pos, IBlockState state) {
@@ -165,7 +120,7 @@ public abstract class BlockDiode extends Block {
 	}
 
 	protected EnumParticleTypes getParticleType(IBlockState state) {
-		return getSignal(state) == Signal.REDSTONE ? EnumParticleTypes.REDSTONE : EnumParticleTypes.PORTAL;
+		return EnumParticleTypes.REDSTONE;
 	}
 	
 	/* BLOCK OVERRIDE */
@@ -221,8 +176,7 @@ public abstract class BlockDiode extends Block {
 
 	@Override
 	public int getWeakPower(IBlockAccess worldIn, BlockPos pos, IBlockState state, EnumFacing side) {
-		return getSignal(state) == Signal.REDSTONE && isActive(state) && getOutput(state).getOpposite() == side ? 15
-																												: 0;
+		return isActive(state) && getOutput(state).getOpposite() == side ? 15: 0;
 	}
 
 	@Override
@@ -258,7 +212,6 @@ public abstract class BlockDiode extends Block {
 
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		notifyEnderNeighbors(worldIn, pos);
 		notifyRedstoneNeighbors(worldIn, pos, state);
 	}
 

@@ -19,7 +19,6 @@ public class ItemDiode1In extends ItemBlock {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		int i = stack.getMetadata();
-		return "tile." + (i < 8 ? "" : "ender_") + super.getUnlocalizedName().substring(5);
+		return "tile." + super.getUnlocalizedName().substring(5);
 	}
 }

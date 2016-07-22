@@ -1,7 +1,6 @@
 package com.github.rainang.logicgates.block;
 
 import com.github.rainang.logicgates.Gate;
-import com.github.rainang.logicgates.Signal;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.properties.PropertyInteger;
@@ -15,8 +14,8 @@ public abstract class BlockDiode3In extends BlockDiode2In {
 
 	public static final PropertyInteger INPUT = PropertyInteger.create("input", 0, 3);
 
-	public BlockDiode3In(Signal signal, Gate gate, int type) {
-		super(signal, gate, type);
+	public BlockDiode3In(Gate gate, int type) {
+		super(gate, type);
 		setDefaultState(
 				blockState.getBaseState().withProperty(OUT, EnumFacing.NORTH).withProperty(getInputProperty(), 0));
 	}

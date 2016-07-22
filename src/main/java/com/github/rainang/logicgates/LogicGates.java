@@ -31,7 +31,6 @@ public class LogicGates {
 
 	public static final BlockDiode[] repeaters  = DiodeFactory.create1InputDiode("repeater", Gate.BUFFER);
 	public static final BlockDiode[] inverters  = DiodeFactory.create1InputDiode("inverter", Gate.NOT);
-	public static final BlockDiode[] converters = DiodeFactory.createConverterDiode();
 
 	public static final BlockDiode[] gates_and  = DiodeFactory.create2InputDiode("and", Gate.AND);
 	public static final BlockDiode[] gates_or   = DiodeFactory.create2InputDiode("or", Gate.OR);

@@ -1,7 +1,0 @@
-{
-  "parent": "logicgates:block/base/diode1in_0",
-  "textures": {
-	"in": "logicgates:blocks/ender_on",
-	"out": "logicgates:blocks/ender_torch_on"
-  }
-}
