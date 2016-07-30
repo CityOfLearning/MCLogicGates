@@ -19,20 +19,21 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.8.9-1.0.3"
+version = "1.8.9-dyn"
 group = "com.github.rainang.logicgates"
 //noinspection GroovyUnusedAssignment
 archivesBaseName = "logicgates"
 
 minecraft {
-    version = "1.8.9-11.15.1.1722"
+    version = "1.8.9-11.15.1.1902-1.8.9"
     runDir = "run"
 
     replace '@version@', project.version
     replace '@mcversion@', project.minecraft.version
     replaceIn 'LogicGates.java'
 
-    mappings = "stable_20"
+    mappings = "stable_22"
+	makeObfSourceJar = false
 }
 
 jar {	
@@ -70,6 +71,6 @@ processResources
     targetCompatibility = 1.8
 }
 
-task wrapper(type: Wrapper) {
-	gradleVersion = "2.6"
+reobfJar.doLast {
+    ant.checksum file: tasks.jar.archivePath
 }
